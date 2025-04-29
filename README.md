@@ -1,5 +1,5 @@
 # Pasco-Businesses-Web-Application
-**Kristen Do, Armaan Azeem, Cesar Vargas, and Shira Zur**
+**_Kristen Do, Armaan Azeem, Cesar Vargas, and Shira Zur_**
 
 ## Project Description
 
