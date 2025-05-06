@@ -1,13 +1,13 @@
 @font-face {
-    font-family: 'Aktiv Grotesk Regular';
+    font-family: 'Aktiv Grotesk';
     src: url('assets/fonts/font-1/AktivGroteskCd_Trial_Md.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Aktiv Grotesk SemiBold';
-    src: url('assets/fonts/font-1/AktivGroteskEx_Trial_SBd.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'Aktiv Grotesk';
+    src: url('../assets/fonts/font-1/AktivGroteskEx_Trial_SBd.ttf') format('truetype');
+    font-style: normal;
 }
 * {
     margin: 0;
@@ -16,14 +16,15 @@
 }
 
 body {
-    font-family: 'Aktiv Grotesk Regular', sans-serif;
+    font-family: 'Aktiv Grotesk', sans-serif;
     background-color: #ffffff;
     color: white;
 }
 
 .introduction h1{
-    font-family: 'Aktiv Grotesk SemiBold', sans-serif;
-    color: black;
+    font-family: 'Aktiv Grotesk', sans-serif;
+    color: #789DAF;
+    padding-left: 2rem;
 }
 
 header {
@@ -55,9 +56,9 @@ nav a {
     border-left: 1px solid white;
     transition: all 0.3s ease;
     position: relative;
-    text-transform: uppercase; /* Makes text uppercase like the reference */
-    font-weight: 500; /* Slightly bolder than normal */
-    font-size: 0.9rem; /* More controlled size than 'larger' */
+    text-transform: uppercase; 
+    font-weight: 500; 
+    font-size: 0.9rem; 
 }
 
 nav a:first-child {
