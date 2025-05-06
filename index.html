@@ -28,8 +28,47 @@
             class="hero-image"
         >
     </div>
+
     <section class="introduction">
         <h1>Welcome to Downtown City of Pasco!</h1>
     </section>
+
+    <div class="carousel">
+        <div class="carousel-images">
+          <img src="assets/images/img_1.JPG" alt="Image 1" />
+          <img src="assets/images/img_2.JPG" alt="Image 2" />
+          <img src="assets/images/img_3.JPG" alt="Image 3" />
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      
+    <script>
+        const carousel = document.querySelector(".carousel-images");
+        const images = document.querySelectorAll(".carousel-images img");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+
+        let index = 0;
+
+        function updateCarousel() {
+            
+            carousel.style.transform = `translateX(-${index * window.innerWidth}px)`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+            index = (index + 1) % images.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            index = (index - 1 + images.length) % images.length;
+            updateCarousel();
+        });
+
+        
+        window.addEventListener('resize', updateCarousel);
+    </script>
+      
 </body>
 </html>
