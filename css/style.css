@@ -1,8 +1,13 @@
 @font-face {
-    font-family: 'Aktiv Grotesk';
+    font-family: 'Aktiv Grotesk Regular';
     src: url('assets/fonts/font-1/AktivGroteskCd_Trial_Md.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Aktiv Grotesk SemiBold';
+    src: url('assets/fonts/font-1/AktivGroteskEx_Trial_SBd.ttf') format('truetype');
+    font-weight: normal;
 }
 * {
     margin: 0;
@@ -11,9 +16,14 @@
 }
 
 body {
-    font-family: 'Aktiv Grotesk', sans-serif;
+    font-family: 'Aktiv Grotesk Regular', sans-serif;
     background-color: #ffffff;
     color: white;
+}
+
+.introduction h1{
+    font-family: 'Aktiv Grotesk SemiBold', sans-serif;
+    color: black;
 }
 
 header {
