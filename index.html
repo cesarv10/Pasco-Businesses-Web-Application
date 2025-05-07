@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasco Business</title>
-    <meta name="author" content="Kristen, Armaan, Cesar, & Shira ">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasco Business</title>
+  <meta name="author" content="Kristen, Armaan, Cesar, & Shira" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
+  <div class="wrapper">
     <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco White Logo" />
-            </a>
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco White Logo" />
+        </a>
+      </div>
+      <nav>
+        <a href="business-direct.html">Business Directory</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link">Events</a>
+          <div class="dropdown-content">
+            <a href="events.html">Event Calendar <span class="arrow">›</span></a>
+            <a href="events-kitchen.html">Rent a Kitchen Space <span class="arrow">›</span></a>
+          </div>
         </div>
-        <nav>
-            <a href="business-direct.html">Business Directory</a>
-          
-            <div class="dropdown">
-              <a href="events.html" class="dropdown-link">Events</a>
-              <div class="dropdown-content">
-                <a href="#">Event Calendar <span class="arrow">›</span></a>
-                <a href="#">Rent a Kitchen Space <span class="arrow">›</span></a>
-              </div>
-            </div>
-          
-            <a href="business-app.html">Business Application</a>
-            <a href="contact.html">Contact</a>
-          </nav>
+        <a href="business-app.html">Business Application</a>
+      </nav>
     </header>
 
-    <div class="hero">
+    <main>
+      <div class="hero">
         <img 
-            src="assets/images/DowntownPasco.jpg" 
-            alt="City of Pasco" 
-            class="hero-image"
-        >
-    </div>
+          src="assets/images/DowntownPasco.jpg" 
+          alt="City of Pasco" 
+          class="hero-image" 
+        />
+      </div>
 
-    <section class="introduction">
+      <section class="introduction">
         <h1>Welcome to Downtown City of Pasco!</h1>
         <p>
-            Pasco has experienced rapid residential growth in the 21st century, 
-            growing from a 2000 population of 32,066 to a 2024 population estimate of 82,220.
+          Pasco has experienced rapid residential growth in the 21st century, 
+          growing from a 2000 population of 32,066 to a 2024 population estimate of 82,220.
         </p>
-    </section>
+      </section>
 
-    <div class="carousel">
+      <div class="carousel">
         <div class="carousel-images">
           <img src="assets/images/img_1.JPG" alt="Image 1" />
           <img src="assets/images/img_2.JPG" alt="Image 2" />
@@ -56,61 +54,62 @@
         <button class="prev">&#10094;</button>
         <button class="next">&#10095;</button>
       </div>
-    
-      <div class="contact-container-full">
-        <div class="contact-logo-section">
-          <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco Logo" class="contact-logo">
-        </div>
-        
-        <div class="contact-details">
-          <div class="contact-info">
-            <h3>Contact Us</h3>
-            <p class="address">
-              <strong>Pasco City Hall</strong><br>
-              525 N 3rd Avenue<br>
-              Pasco, WA 99301
-            </p>
-            <p class="phone">Phone: 509-544-3080</p>
-            <p class="hours">Hours: Monday-Friday 8:00 AM - 5:00 PM</p>
-          </div>
-          
-          <div class="quick-links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="https://www.pasco-wa.gov/1012/Departments">City Department Directory</a></li>
-              <li><a href="https://www.pasco-wa.gov/CivicAlerts.aspx?CID=16">Public Notices</a></li>
-              <li><a href="https://www.pasco-wa.gov/313/Emergency-PreparednessPublic-Safety">Emergency Prepardness & Contacts</a></li>
-            </ul>
-          </div>
-        </div>
+    </main>
+  </div>
+
+  <footer class="contact-container-full">
+    <div class="contact-logo-section">
+      <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco Logo" class="contact-logo" />
+    </div>
+
+    <div class="contact-details">
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p class="address">
+          <strong>Pasco City Hall</strong><br />
+          525 N 3rd Avenue<br />
+          Pasco, WA 99301
+        </p>
+        <p class="phone">Phone: 509-544-3080</p>
+        <p class="hours">Hours: Monday–Friday 8:00 AM – 5:00 PM</p>
       </div>
 
-    <script>
-        const carousel = document.querySelector(".carousel-images");
-        const images = document.querySelectorAll(".carousel-images img");
-        const prevBtn = document.querySelector(".prev");
-        const nextBtn = document.querySelector(".next");
+      <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="https://www.pasco-wa.gov/1012/Departments">City Department Directory</a></li>
+          <li><a href="https://www.pasco-wa.gov/CivicAlerts.aspx?CID=16">Public Notices</a></li>
+          <li><a href="https://www.pasco-wa.gov/313/Emergency-PreparednessPublic-Safety">Emergency Preparedness & Contacts</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-        let index = 0;
+  <script>
+    const carousel = document.querySelector(".carousel-images");
+    const images = document.querySelectorAll(".carousel-images img");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
 
-        function updateCarousel() {
-            
-            carousel.style.transform = `translateX(-${index * window.innerWidth}px)`;
-        }
+    let index = 0;
 
-        nextBtn.addEventListener("click", () => {
-            index = (index + 1) % images.length;
-            updateCarousel();
-        });
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${index * window.innerWidth}px)`;
+      carousel.style.transition = "transform 0.5s ease-in-out";
+    }
 
-        prevBtn.addEventListener("click", () => {
-            index = (index - 1 + images.length) % images.length;
-            updateCarousel();
-        });
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      updateCarousel();
+    });
 
-        
-        window.addEventListener('resize', updateCarousel);
-    </script>
-      
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+
+    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("load", updateCarousel);
+  </script>
 </body>
 </html>

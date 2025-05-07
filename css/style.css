@@ -28,10 +28,24 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Aktiv Grotesk', sans-serif;
     background-color: #ffffff;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* homepage */
