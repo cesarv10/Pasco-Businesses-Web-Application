@@ -6,6 +6,8 @@
     <title>Pasco Business Events</title>
     <meta name="author" content="Kristen">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="wrapper">
@@ -31,9 +33,31 @@
     </header>
 
     <main>
+      <section class="introduction">
+        <h1>Current Events</h1>
+      </section>
       
-      <section>
-
+      <!-- Events Filter Section -->
+      <section class="events-filter">
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="all">All Events</button>
+          <button class="filter-btn" data-filter="saved">Saved</button>
+        </div>
+      </section>
+      
+      <section class="events-container" id="events-container">
+        
+        <div class="loading-message">Loading events...</div>
+      </section>
+      
+      <!-- Email Signup Section -->
+      <section class="email-signup">
+        <h2>Sign-up for Email Updates</h2>
+        <p>Stay updated with any customers throughout the week or in event period</p>
+        <form class="signup-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
       </section>
     </main>
   </div>
@@ -66,5 +90,5 @@
     </div>
   </footer>
 </body>
-
+<script src="assets/js/events.js"></script>
 </html>
