@@ -561,3 +561,52 @@ nav a:hover,
       padding-top: 20px;
     }
   }
+
+
+  /* === Cesar's Directory Custom Styling === */
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.business-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+}
+
+.business-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.business-card h3 {
+  font-family: 'Aktiv Grotesk SB', sans-serif;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.business-card .read-more {
+  display: inline-block;
+  font-family: 'Aktiv Grotesk RG', sans-serif;
+  color: #3E748E;
+  text-decoration: none;
+  margin: 0 1rem 1rem;
+  font-size: 0.9rem;
+}
+
+.business-card .read-more:hover {
+  text-decoration: underline;
+}
