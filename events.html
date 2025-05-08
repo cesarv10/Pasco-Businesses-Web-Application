@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasco Business Events</title>
-    <meta name="author" content="Kristen">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Add Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pasco Business Events</title>
+  <meta name="author" content="Kristen" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <div class="wrapper">
@@ -19,7 +18,6 @@
       </div>
       <nav>
         <a href="business-direct.html">Business Directory</a>
-
         <div class="dropdown">
           <a href="#" class="dropdown-link">Events</a>
           <div class="dropdown-content">
@@ -27,7 +25,6 @@
             <a href="events-kitchen.html">Rent a Kitchen Space <span class="arrow">›</span></a>
           </div>
         </div>
-
         <a href="business-app.html">Business Application</a>
       </nav>
     </header>
@@ -36,49 +33,61 @@
       <section class="introduction">
         <h1>Current Events</h1>
       </section>
-      
-      <!-- Events Filter Section -->
+
       <section class="events-filter">
         <div class="filter-options">
           <button class="filter-btn active" data-filter="all">All Events</button>
           <button class="filter-btn" data-filter="saved">Saved</button>
         </div>
       </section>
-      
-      <section class="events-container" id="events-container">
-        
-        <div class="loading-message">Loading events...</div>
+
+      <!-- Events + Email Layout -->
+      <section class="events-layout">
+        <div class="events-main">
+          <div class="events-container" id="events-container">
+            <div class="loading-message">Loading events...</div>
+          </div>
+        </div>
+
+        <!-- Email Signup Sidebar -->
+        <aside class="email-signup">
+          <h2>Sign-up for Email Updates</h2>
+          <p>Stay up-to-date with any current events in regards to business deals & more!</p>
+          <form class="signup-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </aside>
       </section>
-      
-      <!-- Email Signup Section -->
-      <section class="email-signup">
-        <h2>Sign-up for Email Updates</h2>
-        <p>Stay updated with any customers throughout the week or in event period</p>
-        <form class="signup-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
+
+      <!-- Event Submit CTA -->
+      <section class="event-submit">
+        <h2>Showcase Your Own Event</h2>
+        <p>Want to be featured here? Submit your event to be verified.</p>
+        <a href="https://docs.google.com/forms/d/1U_snSatg6z0GuYQSzLriCqK5HrZljCExzbAljDaY2gY/viewform?pli=1&pli=1&edit_requested=true#responses" 
+           target="_blank" 
+           class="form-button">
+          Submit an Event
+        </a>
       </section>
     </main>
   </div>
 
   <footer class="contact-container-full">
     <div class="contact-logo-section">
-      <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco Logo" class="contact-logo">
+      <img src="assets/images/CityOfPasco_logo_standard_WA_white.png" alt="City of Pasco Logo" class="contact-logo" />
     </div>
-
     <div class="contact-details">
       <div class="contact-info">
         <h3>Contact Us</h3>
         <p class="address">
-          <strong>Pasco City Hall</strong><br>
-          525 N 3rd Avenue<br>
+          <strong>Pasco City Hall</strong><br/>
+          525 N 3rd Avenue<br/>
           Pasco, WA 99301
         </p>
         <p class="phone">Phone: 509-544-3080</p>
         <p class="hours">Hours: Monday-Friday 8:00 AM - 5:00 PM</p>
       </div>
-
       <div class="quick-links">
         <h3>Quick Links</h3>
         <ul>
@@ -89,6 +98,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="assets/js/events.js"></script>
 </body>
-<script src="assets/js/events.js"></script>
 </html>
