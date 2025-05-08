@@ -109,14 +109,16 @@ nav a,
     border-left: 1px solid white;
 }
 
-nav > a:first-child {
-    border-left: none;
+nav > a:first-child,
+nav > .dropdown:first-child .dropdown-link {
+  border-left: none;
 }
 
 nav a:hover,
 .dropdown-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 
 .dropdown {
     position: relative;
@@ -271,7 +273,7 @@ nav a:hover,
   
   .quick-links a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     transition: opacity 0.2s;
   }
   
