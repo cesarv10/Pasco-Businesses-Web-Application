@@ -83,18 +83,19 @@ function createEventCard(date, time, title, description) {
   card.dataset.saved = 'false';
 
   card.innerHTML = `
-    <div class="event-date">
-      ${formatDate(date)}
-      <div class="event-time">${formatTime(time)}</div>
-    </div>
-    <h3 class="event-title">${title}</h3>
-    <p class="event-description">${description}</p>
-    <div class="event-actions">
-      <button class="save-btn">
-        <i class="far fa-bookmark"></i> Save
-      </button>
-    </div>
-  `;
+  <h3 class="event-title">${title}</h3>
+  <div class="event-datetime">
+    <span class="event-date">${formatDate(date)}</span> •
+    <span class="event-time">${formatTime(time)}</span>
+  </div>
+  <p class="event-description">${description}</p>
+  <div class="event-actions">
+    <button class="save-btn">
+      <i class="far fa-bookmark"></i> Save
+    </button>
+  </div>
+`;
+
 
   const saveBtn = card.querySelector('.save-btn');
   saveBtn.addEventListener('click', function () {

@@ -334,23 +334,24 @@ nav a:hover,
     transform: translateY(-5px);
 }
 
-.event-date {
-    font-family: 'Aktiv Grotesk SB', sans-serif;
-    color: black;
-    margin-bottom: 0.5rem;
+.event-datetime {
     font-size: 0.9rem;
-}
-
-.event-time {
+    font-family: 'Aktiv Grotesk RG', sans-serif;
     color: black;
-}
-
-.event-title {
-    font-family: 'Aktiv Grotesk SB', sans-serif;
-    color: #3E748E;
-    margin-bottom: 1rem;
+    margin: 0.25rem 0 1rem;
+  }
+  
+  .event-datetime .event-date,
+  .event-datetime .event-time {
+    display: inline;
+  }
+  
+  .event-title {
     font-size: 1.2rem;
-}
+    margin-bottom: 0.5rem;
+    color: #3E748E;
+  }
+  
 
 .event-description {
     font-family: 'Aktiv Grotesk RG', sans-serif;
