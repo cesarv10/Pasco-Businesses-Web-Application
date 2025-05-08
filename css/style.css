@@ -284,8 +284,6 @@ nav a:hover,
 
 
 /* events page */
-  
-/* Events Page Styles */
 .events-filter {
     padding: 1rem;
     border-bottom: 1px solid #e0e0e0;
@@ -376,6 +374,7 @@ nav a:hover,
     color: #d4af37; 
 }
 
+/* email signup */
 .email-signup {
     padding: 2rem 1rem;
     background-color: #f5f5f5;
@@ -424,26 +423,6 @@ nav a:hover,
     background-color: #2c5a70;
 }
 
-/* Add to your CSS file */
-.event-image-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-}
-
-.event-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.event-card:hover .event-image {
-    transform: scale(1.05);
-}
-
 /* Loading and error messages */
 .loading-message,
 .no-events,
@@ -467,8 +446,6 @@ nav a:hover,
 .save-btn.saved i {
     color: #d4af37;
 }
-
-
 
 
 
