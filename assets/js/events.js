@@ -1,3 +1,5 @@
+let allFeatures = [];
+
 document.addEventListener('DOMContentLoaded', function () {
   const SURVEY_LAYER_URL =
     'https://services1.arcgis.com/mBduYxVcr3cUuRe8/arcgis/rest/services/survey123_f44001fc67e242ee84ee0bb029a4011a/FeatureServer/0';
@@ -6,48 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(QUERY_URL)
     .then((response) => response.json())
     .then((data) => {
-      const features = data.features;
-      const container = document.getElementById('events-container');
-      container.innerHTML = '';
-
-      if (!features || features.length === 0) {
-        container.innerHTML = '<p class="no-events">No events available. Check back later.</p>';
-        return;
-      }
-
-      features.forEach((feature) => {
-        const props = feature.properties;
-        const title = props.event_title || '';
-        const description = props.event_description || '';
-        const location = props.event_location || '';
-        const website = props.websiteadditional_links || '';
-
-        const date = props.event_date
-          ? new Date(props.event_date).toLocaleDateString(undefined, {
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            })
-          : '';
-
-        function to12Hour(timeStr) {
-          if (!timeStr) return '';
-          const [hour, minute] = timeStr.split(':');
-          const date = new Date();
-          date.setHours(+hour, +minute);
-          return date.toLocaleTimeString([], {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true,
-          });
-        }
-
-        const startTime = to12Hour(props.start_time);
-        const endTime = to12Hour(props.end_time);
-
-        const card = createEventCard(date, startTime, endTime, title, description, location, website);
-        container.appendChild(card);
-      });
+      allFeatures = data.features || [];
+      applyDateSort(); // Initial render
     })
     .catch((error) => {
       console.error('Error loading events:', error);
@@ -55,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
         '<p class="error-message">Unable to load events. Try again later.</p>';
     });
 
+  // Sort filter dropdown
+  document.getElementById('sort-filter').addEventListener('change', applyDateSort);
+
+  // Modal close
   document.getElementById('modal-close').addEventListener('click', () => {
     document.getElementById('event-modal').style.display = 'none';
   });
@@ -65,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Saved toggle
   document.querySelectorAll('.filter-btn').forEach((btn) => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
       this.classList.add('active');
 
       const showSaved = this.dataset.filter === 'saved';
-
       document.querySelectorAll('.event-card').forEach((card) => {
         const isSaved = card.dataset.saved === 'true';
         card.style.display = !showSaved || isSaved ? 'block' : 'none';
@@ -79,6 +45,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Helper functions
+function to12Hour(timeStr) {
+  if (!timeStr) return '';
+  const [hour, minute] = timeStr.split(':');
+  const date = new Date();
+  date.setHours(+hour, +minute);
+  return date.toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+}
+
+function formatDate(dateStr) {
+  return dateStr
+    ? new Date(dateStr).toLocaleDateString(undefined, {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : '';
+}
+
+// Re-render based on sort filter
+function applyDateSort() {
+  const sortOrder = document.getElementById('sort-filter').value;
+  const container = document.getElementById('events-container');
+  container.innerHTML = '';
+
+  const sorted = [...allFeatures].sort((a, b) => {
+    const dateA = new Date(a.properties.event_date);
+    const dateB = new Date(b.properties.event_date);
+    return sortOrder === 'latest' ? dateB - dateA : dateA - dateB;
+  });
+
+  sorted.forEach((feature) => {
+    const props = feature.properties;
+    const card = createEventCard(
+      formatDate(props.event_date),
+      to12Hour(props.start_time),
+      to12Hour(props.end_time),
+      props.event_title,
+      props.event_description,
+      props.event_location,
+      props.websiteadditional_links
+    );
+    container.appendChild(card);
+  });
+}
 
 // Create event card
 function createEventCard(date, startTime, endTime, title, description, location, website) {
@@ -93,7 +109,7 @@ function createEventCard(date, startTime, endTime, title, description, location,
     <h3 class="event-title">${title}</h3>
     <div class="event-datetime">
       <span class="event-date">${date}</span>
-      <span class="dot-separator" style="margin: 0 8px;">•</span>
+      <span class="dot-separator">•</span>
       <span class="event-time">${timeString}</span>
     </div>
     <p class="event-description">${shortDescription}</p>
@@ -102,27 +118,26 @@ function createEventCard(date, startTime, endTime, title, description, location,
     </div>
   `;
 
-  
+  // Save toggle
   const saveButton = card.querySelector('.save-btn');
   saveButton.addEventListener('click', function (e) {
-    e.stopPropagation(); 
+    e.stopPropagation();
     const isSaved = card.dataset.saved === 'true';
     card.dataset.saved = isSaved ? 'false' : 'true';
-
     saveButton.classList.toggle('saved');
     saveButton.innerHTML = isSaved
       ? '<i class="far fa-bookmark"></i> Save'
       : '<i class="fas fa-bookmark"></i> Saved';
   });
 
-  
+  // Open modal
   card.addEventListener('click', function (e) {
     if (e.target.closest('.save-btn')) return;
 
     document.getElementById('modal-title').textContent = title;
     document.getElementById('modal-datetime').innerHTML = `
       <span class="modal-date">${date}</span>
-      <span class="dot-separator" style="margin: 0 8px;">•</span>
+      <span class="dot-separator">•</span>
       <span class="modal-time">${timeString}</span>
     `;
     document.getElementById('modal-description').textContent = description;
@@ -130,14 +145,14 @@ function createEventCard(date, startTime, endTime, title, description, location,
     const modalLocation = document.getElementById('modal-location');
     if (location) {
       const encodedLocation = encodeURIComponent(location);
-      modalLocation.innerHTML = `📍 <a href="https://www.google.com/maps/dir/?api=1&destination=${encodedLocation}" target="_blank" rel="noopener noreferrer" style="color: #3E748E; text-decoration: underline;">${location}</a>`;
+      modalLocation.innerHTML = `📍 <a href="https://www.google.com/maps/dir/?api=1&destination=${encodedLocation}" target="_blank" rel="noopener noreferrer" style="color: #000; text-decoration: underline;">${location}</a>`;
     } else {
       modalLocation.innerHTML = '';
     }
 
     const websiteElem = document.getElementById('modal-website');
     if (website) {
-      websiteElem.innerHTML = `🔗 <a href="${website}" target="_blank">${website}</a>`;
+      websiteElem.innerHTML = `🔗 <a href="${website}" target="_blank" style="color: #000; text-decoration: underline;">${website}</a>`;
     } else {
       websiteElem.innerHTML = '';
     }
@@ -147,6 +162,8 @@ function createEventCard(date, startTime, endTime, title, description, location,
 
   return card;
 }
+
+
 
 
 

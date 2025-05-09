@@ -17,7 +17,13 @@
         </a>
       </div>
       <nav>
-        <a href="business-direct.html">Business Directory</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link">Business Directory</a>
+          <div class="dropdown-content">
+            <a href="business-direct.html">Explore Businesses <span class="arrow">›</span></a>
+            <a href="#">Business Map <span class="arrow">›</span></a>
+          </div>
+        </div>
         <div class="dropdown">
           <a href="#" class="dropdown-link">Events</a>
           <div class="dropdown-content">
@@ -35,9 +41,15 @@
       </section>
 
       <section class="events-filter">
-        <div class="filter-options">
-          <button class="filter-btn active" data-filter="all">All Events</button>
-          <button class="filter-btn" data-filter="saved">Saved</button>
+        <div class="filter-header">
+          <div class="sort-and-filters">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <select id="sort-filter" class="sort-dropdown">
+              <option value="latest">Latest to Earliest</option>
+              <option value="earliest">Earliest to Latest</option>
+            </select>
+            <button class="filter-btn" data-filter="saved">Saved</button>
+          </div>
         </div>
       </section>
 
